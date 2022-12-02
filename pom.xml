@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.stegnin</groupId>
-    <artifactId>jira-bot</artifactId>
+    <artifactId>jira-ved</artifactId>
     <version>1.0</version>
-    <name>jira-bot</name>
+    <name>jira-ved</name>
     <description>jira-bot</description>
     <properties>
         <java.version>17</java.version>

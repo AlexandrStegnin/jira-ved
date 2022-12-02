@@ -1,4 +1,4 @@
-package com.stegnin.happy.bday.bot;
+package com.stegnin.jira.ved;
 
 import lombok.SneakyThrows;
 import org.springframework.boot.SpringApplication;
@@ -7,11 +7,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 @SpringBootApplication
-public class JiraBotApplication {
+public class JiraVedApplication {
 
   @SneakyThrows
   public static void main(String[] args) {
-    SpringApplication.run(JiraBotApplication.class, args);
+    SpringApplication.run(JiraVedApplication.class, args);
   }
 
 }
