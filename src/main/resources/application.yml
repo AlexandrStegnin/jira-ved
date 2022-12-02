@@ -1,0 +1,45 @@
+spring:
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false
+
+      # Without below HikariCP uses deprecated com.zaxxer.hikari.hibernate.HikariConnectionProvider
+      # Surprisingly enough below ConnectionProvider is in hibernate-hikaricp dependency and not hibernate-core
+      # So you need to pull that dependency but, make sure to exclude it's transitive dependencies or you will end up
+      # with different versions of hibernate-core
+
+      connection:
+        provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        id:
+          new_generator_mappings: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    open-in-view: false
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+  main:
+    banner-mode: off
+
+  devtools:
+    add-properties: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimumIdle: 10
+      maximumPoolSize: 250
+      idleTimeout: 600000
+      poolName: SpringBootJPAHikariCP
+      maxLifetime: 150000
+      connectionTimeout: 30000
