@@ -40,6 +40,6 @@ spring:
       minimumIdle: 10
       maximumPoolSize: 250
       idleTimeout: 600000
-      poolName: SpringBootJPAHikariCP
+      poolName: JiraVedHikariCP
       maxLifetime: 150000
       connectionTimeout: 30000
