@@ -1,1 +1,1 @@
-CREATE SCHEMA "jira-bot";
+CREATE SCHEMA IF NOT EXISTS "jira-bot";
