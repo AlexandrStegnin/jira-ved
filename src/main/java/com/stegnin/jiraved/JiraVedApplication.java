@@ -12,12 +12,12 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 @SpringBootApplication
 public class JiraVedApplication {
 
-  @SneakyThrows
-  public static void main(String[] args) {
-    var context = SpringApplication.run(JiraVedApplication.class, args);
-    var bot = BotConfigurator.configure(context);
-    var api = new TelegramBotsApi(DefaultBotSession.class);
-    api.registerBot(bot);
-  }
+    @SneakyThrows
+    public static void main(String[] args) {
+        var context = SpringApplication.run(JiraVedApplication.class, args);
+        var bot = BotConfigurator.configure(context);
+        var api = new TelegramBotsApi(DefaultBotSession.class);
+        api.registerBot(bot);
+    }
 
 }

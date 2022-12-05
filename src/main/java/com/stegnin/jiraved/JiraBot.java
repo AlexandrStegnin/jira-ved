@@ -20,24 +20,24 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @Slf4j
 public class JiraBot extends TelegramLongPollingBot {
 
-  TelegramBotProperty telegramBotProperty;
-  UpdateReceiver updateReceiver;
+    TelegramBotProperty telegramBotProperty;
+    UpdateReceiver updateReceiver;
 
-  @Override
-  public String getBotUsername() {
-    return telegramBotProperty.getName();
-  }
+    @Override
+    public String getBotUsername() {
+        return telegramBotProperty.getName();
+    }
 
-  @Override
-  public String getBotToken() {
-    return telegramBotProperty.getToken();
-  }
+    @Override
+    public String getBotToken() {
+        return telegramBotProperty.getToken();
+    }
 
-  @Override
-  @SneakyThrows
-  public void onUpdateReceived(Update update) {
-    var method = updateReceiver.handleUpdate(update);
-    execute(method);
-  }
+    @Override
+    @SneakyThrows
+    public void onUpdateReceived(Update update) {
+        var method = updateReceiver.handleUpdate(update);
+        execute(method);
+    }
 
 }

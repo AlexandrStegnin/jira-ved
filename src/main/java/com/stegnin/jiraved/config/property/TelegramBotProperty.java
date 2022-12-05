@@ -18,8 +18,9 @@ import javax.validation.constraints.NotBlank;
 @Validated
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TelegramBotProperty {
-  @NotBlank
-  String name;
-  @NotBlank
-  String token;
+
+    @NotBlank
+    String name;
+    @NotBlank
+    String token;
 }

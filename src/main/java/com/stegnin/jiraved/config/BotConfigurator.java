@@ -11,10 +11,11 @@ import org.springframework.context.ConfigurableApplicationContext;
  */
 @UtilityClass
 public class BotConfigurator {
-  public JiraBot configure(ConfigurableApplicationContext context) {
-    var property = context.getBean(TelegramBotProperty.class);
-    var updateReceiver = context.getBean(UpdateReceiver.class);
-    return new JiraBot(property, updateReceiver);
-  }
+
+    public JiraBot configure(ConfigurableApplicationContext context) {
+        var property = context.getBean(TelegramBotProperty.class);
+        var updateReceiver = context.getBean(UpdateReceiver.class);
+        return new JiraBot(property, updateReceiver);
+    }
 
 }

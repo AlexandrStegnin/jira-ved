@@ -19,25 +19,27 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UpdateReceiver {
 
-  UserActionHandler userActionHandler;
+    UserActionHandler userActionHandler;
 
-  public BotApiMethod<Message> handleUpdate(Update update) {
-    if (MessageUtils.isCallbackMessage(update)) {
-      return handleCallback(update);
+    public BotApiMethod<Message> handleUpdate(Update update) {
+        if (MessageUtils.isCallbackMessage(update)) {
+            return handleCallback(update);
+        }
+        return handleText(update);
     }
-    return handleText(update);
-  }
 
-  public BotApiMethod<Message> handleText(Update update) {
-    var message = update.getMessage();
-    log.info("Message from: {}; chat id: {}; text: {}", message.getFrom().getUserName(), message.getChatId(), message.getText());
-    return userActionHandler.handle(update);
-  }
+    public BotApiMethod<Message> handleText(Update update) {
+        var message = update.getMessage();
+        log.info("Message from: {}; chat id: {}; text: {}", message.getFrom().getUserName(), message.getChatId(),
+                message.getText());
+        return userActionHandler.handle(update);
+    }
 
-  public BotApiMethod<Message> handleCallback(Update update) {
-    var message = update.getCallbackQuery().getMessage();
-    log.info("Message from: {}; chat id: {}; text: {}", message.getFrom().getUserName(), message.getChatId(), update.getCallbackQuery().getData());
-    return userActionHandler.handle(update);
-  }
+    public BotApiMethod<Message> handleCallback(Update update) {
+        var message = update.getCallbackQuery().getMessage();
+        log.info("Message from: {}; chat id: {}; text: {}", message.getFrom().getUserName(), message.getChatId(),
+                update.getCallbackQuery().getData());
+        return userActionHandler.handle(update);
+    }
 
 }

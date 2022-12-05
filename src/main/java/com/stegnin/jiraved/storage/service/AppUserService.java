@@ -21,6 +21,7 @@ public class AppUserService {
 
     AppUserRepository appUserRepository;
     AppUserMapper appUserMapper;
+
     public AppUser save(Contact contact) {
         var user = appUserMapper.toUser(contact);
         log.info("Save user {}", user);

@@ -24,28 +24,28 @@ import org.telegram.telegrambots.meta.api.objects.User;
 @Slf4j
 public class ContactMessageHandler implements MessageHandler {
 
-  BotMessageBuilder botMessageBuilder;
-  AppUserService appUserService;
+    BotMessageBuilder botMessageBuilder;
+    AppUserService appUserService;
 
-  @Override
-  public boolean canHandle(UserAction action) {
-    return UserAction.SAVE_CONTACT == action;
-  }
-
-  @Override
-  public BotApiMethod<Message> handleMessage(Update update) {
-    var contact = update.getMessage().getContact();
-    if (isSameContact(contact, update.getMessage().getFrom())) {
-      var user = appUserService.save(contact);
-      log.info("Send greeting message to user: {}", user.getPhone());
-      return botMessageBuilder.buildGreetingMessage(user);
+    @Override
+    public boolean canHandle(UserAction action) {
+        return UserAction.SAVE_CONTACT == action;
     }
-    log.info("Send repeat request contact message");
-    return botMessageBuilder.buildRepeatRequestContactMessage(update);
-  }
 
-  private boolean isSameContact(Contact contact, User user) {
-    return Objects.equals(contact.getUserId(), user.getId());
-  }
+    @Override
+    public BotApiMethod<Message> handleMessage(Update update) {
+        var contact = update.getMessage().getContact();
+        if (isSameContact(contact, update.getMessage().getFrom())) {
+            var user = appUserService.save(contact);
+            log.info("Send greeting message to user: {}", user.getPhone());
+            return botMessageBuilder.buildGreetingMessage(user);
+        }
+        log.info("Send repeat request contact message");
+        return botMessageBuilder.buildRepeatRequestContactMessage(update);
+    }
+
+    private boolean isSameContact(Contact contact, User user) {
+        return Objects.equals(contact.getUserId(), user.getId());
+    }
 
 }
