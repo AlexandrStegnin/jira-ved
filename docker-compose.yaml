@@ -13,7 +13,7 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     env_file:
-      - src/main/resources/config/.env.dev
+      - src/main/resources/config/.env
     expose:
       - "8080"
     depends_on:
