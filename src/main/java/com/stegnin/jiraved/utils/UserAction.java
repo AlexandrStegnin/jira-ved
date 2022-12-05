@@ -14,9 +14,13 @@ public enum UserAction {
     INSTRUCTION,
     PARSE_MESSAGE,
     SAVE_CONTACT,
-    SEND_WELCOME;
+    SEND_WELCOME,
+    START_CONVERSATION;
 
     public static UserAction resolveAction(Update update, boolean isUserRegistered) {
+        if (MessageUtils.isStartMessage(update)) {
+            return UserAction.START_CONVERSATION;
+        }
         if ((isUserRegistered && MessageUtils.isCommandMessage(update))) {
             return UserAction.INSTRUCTION;
         } else if (isUserRegistered) {
