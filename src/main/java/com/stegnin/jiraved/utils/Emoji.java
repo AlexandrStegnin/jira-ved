@@ -14,5 +14,6 @@ public class Emoji {
     public final String FINGER_DOWN = "👇";
     public final String DEAL = "🤝";
     public final String PHONE = "☎️";
-
+    public final String WINK = "😉";
+    public final String EXCLAMATION = "❕";
 }
