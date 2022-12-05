@@ -16,4 +16,5 @@ public class Emoji {
     public final String PHONE = "☎️";
     public final String WINK = "😉";
     public final String EXCLAMATION = "❕";
+    public final String CLOCKS = "⏰";
 }

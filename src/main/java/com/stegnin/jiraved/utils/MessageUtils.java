@@ -31,7 +31,7 @@ public class MessageUtils {
                 Я помогу тебе не забыть про Time to market по твоим ЗНИ %s!
                 Поделись со мной своим номером телефона %s
                 Так я буду уверен, что общаюсь именно с тобой.
-                Нажми кнопку 'Поделиться номером' %s""".formatted(Emoji.HELLO, Emoji.CAKE, Emoji.IPHONE,
+                Нажми кнопку 'Поделиться номером' %s""".formatted(Emoji.HELLO, Emoji.CLOCKS, Emoji.IPHONE,
                 Emoji.FINGER_DOWN);
     }
 
