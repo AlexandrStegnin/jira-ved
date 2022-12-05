@@ -12,6 +12,10 @@ public class MessageUtils {
   public boolean isCommandMessage(Update update) {
     return update.hasMessage() && update.getMessage().hasText() && update.getMessage().getText().startsWith("/");
   }
+
+  public boolean isStartMessage(Update update) {
+    return update.hasMessage() && update.getMessage().hasText() && update.getMessage().getText().equals("/start");
+  }
   public boolean isContactMessage(Update update) {
     return update.hasMessage() && update.getMessage().hasContact();
   }
