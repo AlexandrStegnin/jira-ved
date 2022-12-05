@@ -1,6 +1,6 @@
 package com.stegnin.jiraved.handler;
 
-import com.stegnin.jiraved.utils.enums.UserAction;
+import com.stegnin.jiraved.utils.UserAction;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
