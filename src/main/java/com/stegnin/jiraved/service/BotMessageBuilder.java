@@ -1,5 +1,6 @@
 package com.stegnin.jiraved.service;
 
+import com.stegnin.jiraved.storage.model.AppUser;
 import com.stegnin.jiraved.utils.MessageUtils;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,20 @@ public class BotMessageBuilder {
 
         botButtonManager.addRequestContactButton(message);
         return message;
+    }
+
+    public SendMessage buildGreetingMessage(AppUser user) {
+        return buildSendMessage(
+                user.getId().toString(),
+                MessageUtils.getGreetingMessage(user.getUsername())
+        );
+    }
+
+    public SendMessage buildRepeatRequestContactMessage(Update update) {
+        return buildSendMessage(
+                update.getMessage().getChatId().toString(),
+                MessageUtils.getRepeatRequestContactMessage()
+        );
     }
 
     private SendMessage buildSendMessage(String chatId, String text) {

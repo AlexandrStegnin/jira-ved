@@ -37,4 +37,11 @@ public class MessageUtils {
       
       """.formatted(username, Emoji.DEAL);
   }
+
+  public String getRepeatRequestContactMessage() {
+    return """
+        Хорошая попытка %s, но мне нужен ТВОЙ номер телефона %s %s
+        Нажми кнопку 'Поделиться номером' %s
+        """.formatted(Emoji.WINK, Emoji.IPHONE, Emoji.EXCLAMATION, Emoji.FINGER_DOWN);
+  }
 }
