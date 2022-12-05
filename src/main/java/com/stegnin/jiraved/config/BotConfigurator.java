@@ -1,8 +1,8 @@
-package com.stegnin.jira.ved.config;
+package com.stegnin.jiraved.config;
 
-import com.stegnin.jira.JiraBot;
-import com.stegnin.jira.ved.config.property.TelegramBotProperty;
-import com.stegnin.jira.handler.UpdateReceiver;
+import com.stegnin.jiraved.JiraBot;
+import com.stegnin.jiraved.config.property.TelegramBotProperty;
+import com.stegnin.jiraved.handler.UpdateReceiver;
 import lombok.experimental.UtilityClass;
 import org.springframework.context.ConfigurableApplicationContext;
 

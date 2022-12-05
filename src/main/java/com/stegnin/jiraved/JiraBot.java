@@ -1,7 +1,7 @@
-package com.stegnin.jira;
+package com.stegnin.jiraved;
 
-import com.stegnin.jira.ved.config.property.TelegramBotProperty;
-import com.stegnin.jira.handler.UpdateReceiver;
+import com.stegnin.jiraved.config.property.TelegramBotProperty;
+import com.stegnin.jiraved.handler.UpdateReceiver;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

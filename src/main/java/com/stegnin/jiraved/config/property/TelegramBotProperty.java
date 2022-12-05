@@ -1,4 +1,4 @@
-package com.stegnin.jira.ved.config.property;
+package com.stegnin.jiraved.config.property;
 
 import lombok.AccessLevel;
 import lombok.Data;

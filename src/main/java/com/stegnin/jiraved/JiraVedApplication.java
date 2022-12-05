@@ -1,6 +1,6 @@
-package com.stegnin.jira.ved;
+package com.stegnin.jiraved;
 
-import com.stegnin.jira.ved.config.BotConfigurator;
+import com.stegnin.jiraved.config.BotConfigurator;
 import lombok.SneakyThrows;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
