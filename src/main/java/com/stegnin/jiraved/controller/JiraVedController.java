@@ -2,6 +2,8 @@ package com.stegnin.jiraved.controller;
 
 import com.stegnin.jiraved.config.JsonExtension;
 import com.stegnin.jiraved.config.property.AppProperty;
+import com.stegnin.jiraved.storage.model.jira.Issue;
+import java.util.List;
 import java.util.Objects;
 import javax.ws.rs.BadRequestException;
 import lombok.AccessLevel;
@@ -26,8 +28,8 @@ public class JiraVedController {
     AppProperty appProperty;
 
     @PostMapping(path = "/{token}/jira")
-    public String handleJiraRequest(@PathVariable String token, @RequestBody Object jiraObject) {
-        log.info("Handle Jira request {}", jiraObject.toJson());
+    public String handleJiraRequest(@PathVariable String token, @RequestBody List<Issue> issues) {
+        log.info("Handle Jira request {}", issues.toJson());
         checkToken(token);
         return "Success";
     }
