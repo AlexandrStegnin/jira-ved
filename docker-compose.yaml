@@ -18,29 +18,7 @@ services:
       - src/main/resources/config/.env
     ports:
       - "8181:8080"
-    depends_on:
-      - postgres
     restart: always
-    networks:
-      - jira-bot-network
-
-  postgres:
-    image: postgres:latest
-    container_name: postgres-jira-bot
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./src/main/resources/db/migration/V202212021202857__create_schema.sql:/docker-entrypoint-initdb.d/V202212021202857__create_schema.sql
-    healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    restart: unless-stopped
     networks:
       - jira-bot-network
 
