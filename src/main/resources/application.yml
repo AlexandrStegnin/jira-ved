@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: ${SPRING_ACTIVE_PROFILES}
   jpa:
     hibernate:
       ddl-auto: none
