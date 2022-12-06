@@ -15,6 +15,7 @@ services:
       - TELEGRAM_BOT_NAME=${TELEGRAM_BOT_NAME}
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - SPRING_ACTIVE_PROFILES=prod
+      - API_TOKEN=${API_TOKEN}
     env_file:
       - src/main/resources/config/.env
     ports:
