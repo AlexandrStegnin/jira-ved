@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.ExtensionMethod;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,11 @@ public class JiraVedController {
         log.info("Handle Jira request {}", issues.toJson());
         checkToken(token);
         return "Success";
+    }
+
+    @GetMapping(path = "/check")
+    public String check() {
+        return "Working";
     }
 
     private void checkToken(String token) {
