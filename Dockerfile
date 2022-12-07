@@ -10,10 +10,8 @@ RUN apt-get -y install nano
 
 # openssl is the only required thing to install
 RUN apt-get -y install openssl
-RUN openssl s_client -connect ${SITE_HOST}:${SITE_PORT} </dev/null \
-    | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${SITE_HOST}.cert \
-    keytool -import -noprompt -trustcacerts -alias ${SITE_HOST}.alias -file ${HOST}.cert \
+RUN openssl s_client -showcerts -connect ${SITE_HOST}:${SITE_PORT} </dev/null | sed -n -e '/-.BEGIN/,/-.END/ p' > ${SITE_HOST}.pem
+RUN keytool -import -noprompt -trustcacerts -alias ${SITE_HOST}.alias -file ${SITE_HOST}.cert \
         -keystore /usr/lib/jvm/java-19-amazon-corretto/lib/security/ -storepass ${KEYSTORE_PASS}
-COPY ~/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory/bot.stegnin.com /usr/lib/jvm/java-19-amazon-corretto/lib/security/
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/bot.jar"]
