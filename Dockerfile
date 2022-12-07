@@ -12,7 +12,7 @@ RUN apt-get -y install nano
 RUN apt-get -y install openssl
 RUN openssl s_client -connect ${SITE_HOST}:${SITE_PORT} </dev/null \
     | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${SITE_HOST}.cert \
-    keytool -import -noprompt -trustcacerts -cacerts -alias ${SITE_HOST}.alias -file ${HOST}.cert \
+    keytool -import -noprompt -trustcacerts -alias ${SITE_HOST}.alias -file ${HOST}.cert \
         -keystore /usr/lib/jvm/java-19-amazon-corretto/lib/security/ -storepass ${KEYSTORE_PASS}
 COPY ~/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory/bot.stegnin.com /usr/lib/jvm/java-19-amazon-corretto/lib/security/
 EXPOSE 8080
